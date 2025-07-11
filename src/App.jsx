@@ -1,25 +1,27 @@
-import React from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './app/store';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import Dashboard from './pages/Dashboard';
+import { useState } from 'react'
+import './App.css'
+import Header from './Header'
+import TodoList from './TodoList'
+import Sidebar from './Sidebar'
+import Calendar from './Calendar'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <Provider store={store}>
-      <Router>
-        <div className="flex h-screen">
-          <Sidebar />
-          <div className="flex-1 flex flex-col">
-            <Header />
-            <main className="p-4 overflow-auto">
-              <Dashboard />
-            </main>
-          </div>
+    <div className='appContainer'>
+      <Header />
+      <div className='main'>
+        <div><Sidebar /></div>
+        <div>
+          <h1>Dashboard</h1>
+          <Calendar />
+          <TodoList />
         </div>
-      </Router>
-    </Provider>
-  );
+      </div>
+      
+    </div>
+  )
 }
+
+export default App
