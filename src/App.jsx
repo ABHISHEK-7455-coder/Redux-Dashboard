@@ -1,27 +1,20 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './Header'
-import TodoList from './TodoList'
-import Sidebar from './Sidebar'
-import Calendar from './Calendar'
+// src/App.jsx
+import React from 'react';
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+import Dashboard from './pages/Dashboard';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className='appContainer'>
-      <Header />
-      <div className='main'>
-        <div><Sidebar /></div>
-        <div>
-          <h1>Dashboard</h1>
-          <Calendar />
-          <TodoList />
-        </div>
+    <div className="app-container">
+      <Sidebar />
+      <div className="main-content">
+        <Header />
+        <Dashboard />
       </div>
-      
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
