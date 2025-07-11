@@ -18,14 +18,10 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard">
-            <div className="cards">
-                <div className="card pink">Recent Tickets</div>
-                <div className="card blue">Visits & Sales</div>
-                <div className="card green">Traffic Sources</div>
-            </div>
-
+            
+<CalendarComponent />
             <ChartBox />
-            <CalendarComponent />
+            
             <div className="tickets">
                 <h3>Recent Tickets</h3>
                 <table>
