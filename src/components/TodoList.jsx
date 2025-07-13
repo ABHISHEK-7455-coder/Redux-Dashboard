@@ -70,7 +70,7 @@ function Ticket(str1){
   let result ="";
   let i = 0;
 
-  while(i < str1.length){
+  for (let i = 0; i < str1.length;) {
     if(str1[i] === 'E' && str1[i+1] === 'F'){
       i += 2;
     }
@@ -115,10 +115,32 @@ console.log(rotateLeft(arr, 2));
 // 2. No sorting allowed. Use only one loop if possible.
 // 3. Write a C++ program to check if an array is sorted in ascending order.
 
+function findSecondLargest(arr) {
+    if (arr.length < 2) {
+        console.log("Need at least two elements.");
+        return;
+    }
 
-function secondLargest(arr){
-  let arr = [1, 2, 4, 66, 65];
-  
-  
+    let num1 = -Infinity;
+    let num2 = -Infinity;
+
+    for (let num of arr) {
+        if (num > num1) {
+            num2 = num1;
+            num1 = num;
+        } else if (num > num2 && num !== num1) {
+            num2 = num;
+        }
+    }
+
+    if (num2 === -Infinity) {
+        console.log("No second largest element (all elements may be equal).");
+    } else {
+        console.log("Second largest element is:", num2);
+    }
 }
+
+let numbers = [10, 20, 40, 30, 40];
+findSecondLargest(numbers); 
+
 
