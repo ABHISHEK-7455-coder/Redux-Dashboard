@@ -2,11 +2,18 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // Async thunk for fetching todos (example API endpoint)
 export const fetchTodos = createAsyncThunk(
-    'items/fetchTodos',
+    'api/fetchTodos',
     async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=5');
+        const response = await fetch('api/todos');
+        if(!response.ok){
+            throw new Error('failed to fetch items')
+        }
         const data = await response.json();
-        return data;
+        return data.map(todo => ({
+    id: todo.id,
+    text: todo.title,
+    completed: todo.completed,
+  }));
     }
 );
 
@@ -26,30 +33,27 @@ const TodoListSlice = createSlice({
         },
 
         addItem: (state, action) => {
-            state.items.unshift({ id: Date.now(), text: action.payload, completed: false });
+            state.items.push({ id: Date.now(), text: action.payload, completed: false });
         },
 
         removeItem: (state, action) => {
             state.items = state.items.filter(todo => todo.id !== action.payload);
         },
     },
-    extraReducers: (builder) => {
-        builder
-            .addCase(fetchTodos.pending, (state) => {
-                state.status = 'loading';
-            })
-            .addCase(fetchTodos.fulfilled, (state, action) => {
-                state.status = 'succeeded';
-                state.items = action.payload.map(todo => ({
-                    id: todo.id,
-                    text: todo.title
-                }));
-            })
-            .addCase(fetchTodos.rejected, (state, action) => {
-                state.status = 'failed';
-                state.error = action.error.message;
-            });
-    }
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchTodos.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchTodos.fulfilled, (state, action) => {
+        state.loading = false;
+        state.items = action.payload;
+      })
+      .addCase(fetchTodos.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+  }
 });
 
 export const { addItem, removeItem, toggleItem } = TodoListSlice.actions;

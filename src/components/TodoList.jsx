@@ -47,7 +47,7 @@ const TodoList = () => {
 
       <ul>
         {items.map((item) => (
-          <li key={item.id} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <li key={item.id} style={{ display: 'flex', gap: '10px' }}>
             <input
               type="checkbox"
               checked={item.completed}
@@ -66,81 +66,82 @@ const TodoList = () => {
 
 export default TodoList;
 
-function Ticket(str1){
-  let result ="";
-  let i = 0;
 
-  for (let i = 0; i < str1.length;) {
-    if(str1[i] === 'E' && str1[i+1] === 'F'){
-      i += 2;
-    }
-    else if(str1[i] === '5'  && str1[i+1] === '6'){
-      i += 2;
-    }
-    else if(str1[i] === 'G'){
-      i += 1;
-    }
-    else{
-      result += str1[i];
-      i += 1;
-    }
-  }
-  return result;
-}
+// function Ticket(str1){
+//   let result ="";
+//   let i = 0;
 
-const input = '2323EF58G';
-console.log(Ticket(input));
-console.log(Ticket("4523EF58G"));     
-console.log(Ticket("E12F35G58"));   
-console.log(Ticket("E56FG"));        
-console.log(Ticket("EF56G"));       
-console.log(Ticket("ABCDE"));     
-console.log(Ticket("123G456EF"));
+//   for (let i = 0; i < str1.length;) {
+//     if(str1[i] === 'E' && str1[i+1] === 'F'){
+//       i += 2;
+//     }
+//     else if(str1[i] === '5'  && str1[i+1] === '6'){
+//       i += 2;
+//     }
+//     else if(str1[i] === 'G'){
+//       i += 1;
+//     }
+//     else{
+//       result += str1[i];
+//       i += 1;
+//     }
+//   }
+//   return result;
+// }
 
-function rotateRight(arr, k) {
-    k = k % arr.length; // To handle if k > arr.length
-    return arr.slice(-k).concat(arr.slice(0, -k));
-}
+// const input = '2323EF58G';
+// console.log(Ticket(input));
+// console.log(Ticket("4523EF58G"));     
+// console.log(Ticket("E12F35G58"));   
+// console.log(Ticket("E56FG"));        
+// console.log(Ticket("EF56G"));       
+// console.log(Ticket("ABCDE"));     
+// console.log(Ticket("123G456EF"));
 
-function rotateLeft(arr, k) {
-    k = k % arr.length;
-    return arr.slice(k).concat(arr.slice(0, k));
-}
+// function rotateRight(arr, k) {
+//     k = k % arr.length; // To handle if k > arr.length
+//     return arr.slice(-k).concat(arr.slice(0, -k));
+// }
 
-let arr = [1, 2, 3, 4, 5];
-console.log(rotateRight(arr, 2));
-console.log(rotateLeft(arr, 2));
+// function rotateLeft(arr, k) {
+//     k = k % arr.length;
+//     return arr.slice(k).concat(arr.slice(0, k));
+// }
 
-// 1. Write a program to find the second largest element in an array.
-// 2. No sorting allowed. Use only one loop if possible.
-// 3. Write a C++ program to check if an array is sorted in ascending order.
+// let arr = [1, 2, 3, 4, 5];
+// console.log(rotateRight(arr, 2));
+// console.log(rotateLeft(arr, 2));
 
-function findSecondLargest(arr) {
-    if (arr.length < 2) {
-        console.log("Need at least two elements.");
-        return;
-    }
+// // 1. Write a program to find the second largest element in an array.
+// // 2. No sorting allowed. Use only one loop if possible.
+// // 3. Write a C++ program to check if an array is sorted in ascending order.
 
-    let num1 = -Infinity;
-    let num2 = -Infinity;
+// function findSecondLargest(arr) {
+//     if (arr.length < 2) {
+//         console.log("Need at least two elements.");
+//         return;
+//     }
 
-    for (let num of arr) {
-        if (num > num1) {
-            num2 = num1;
-            num1 = num;
-        } else if (num > num2 && num !== num1) {
-            num2 = num;
-        }
-    }
+//     let num1 = -Infinity;
+//     let num2 = -Infinity;
 
-    if (num2 === -Infinity) {
-        console.log("No second largest element (all elements may be equal).");
-    } else {
-        console.log("Second largest element is:", num2);
-    }
-}
+//     for (let num of arr) {
+//         if (num > num1) {
+//             num2 = num1;
+//             num1 = num;
+//         } else if (num > num2 && num !== num1) {
+//             num2 = num;
+//         }
+//     }
 
-let numbers = [10, 20, 40, 30, 40];
-findSecondLargest(numbers); 
+//     if (num2 === -Infinity) {
+//         console.log("No second largest element (all elements may be equal).");
+//     } else {
+//         console.log("Second largest element is:", num2);
+//     }
+// }
+
+// let numbers = [10, 20, 40, 30, 40];
+// findSecondLargest(numbers); 
 
 
