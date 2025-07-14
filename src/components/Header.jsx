@@ -6,21 +6,28 @@ const Header = () => {
 
     return (
         <header>
-            <h2 className="header-heading">My Dashboard</h2>
 
             <div className="header-container">
-                <input
+                <div>
+                    <h2 className="header-heading">My Dashboard</h2>
+                </div>
+                <div>
+                    <input
                     type="text"
                     placeholder="Search..."
                     className="header-search"
                 />
+                </div>
 
-                <button className="notification-btn">
+                <div>
+                    <button className="notification-btn">
                     Notification
                 </button>
+                </div>
 
                
-                    <button
+                    <div>
+                        <button
                         className="user-btn"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     >
@@ -34,6 +41,7 @@ const Header = () => {
                             <button className="dropdown-btn">Logout</button>
                         </div>
                     )}
+                    </div>
                
             </div>
         </header>
