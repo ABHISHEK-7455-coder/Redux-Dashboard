@@ -8,9 +8,7 @@ const Header = () => {
         <header>
 
             <div className="header-container">
-                <div>
-                    <h2 className="header-heading">My Dashboard</h2>
-                </div>
+                
                 <div>
                     <input
                     type="text"
@@ -18,7 +16,10 @@ const Header = () => {
                     className="header-search"
                 />
                 </div>
+            
 
+
+             <div className='btn'>
                 <div>
                     <button className="notification-btn">
                     Notification
@@ -42,7 +43,7 @@ const Header = () => {
                         </div>
                     )}
                     </div>
-               
+               </div>
             </div>
         </header>
     );

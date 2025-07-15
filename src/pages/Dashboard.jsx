@@ -31,9 +31,9 @@ const Dashboard = () => {
     return (
         <div className="dashboard">
 
-            <CalendarComponent />
             <ChartBox />
 
+            <CalendarComponent />
            <div className="tickets">
         <h3>Recent Tickets</h3>
         {ticketLoading ? (

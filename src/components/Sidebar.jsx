@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./sidebar.css"
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -37,21 +38,23 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className={`bg-purple-700 text-white h-screen transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-64'} p-4`}>
-      
+    <div className="sidebar-container">
+      <div>
+                    <h1 className="header-heading">My Dashboard</h1>
+                </div>
 
-      <ul className="space-y-4">
+      <ul className="sidebar-list">
         {menuItems.map((item, index) => (
           <li
             key={index}
-            className="hover:bg-purple-600 cursor-pointer p-2 rounded text-sm"
+            className="sidebar-list-item"
             
           >
             {isCollapsed ? item[0] : item}
           </li>
         ))}
       </ul>
-    </aside>
+    </div>
   );
 };
 

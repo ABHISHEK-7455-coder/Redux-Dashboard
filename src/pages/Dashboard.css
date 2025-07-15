@@ -2,7 +2,7 @@
   padding: 20px;
   background-color: #f4f6f9;
   flex: 1;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .cards {
